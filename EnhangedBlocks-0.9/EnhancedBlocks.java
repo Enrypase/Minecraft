@@ -1,6 +1,8 @@
 package passcript.enhancedblocks;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +18,8 @@ import java.io.*;
 
 public final class EnhancedBlocks extends JavaPlugin implements Listener {
 
+    private String directoryPlugin = "./plugins/EnhancedBlocks/";
+
     @Override
     public void onEnable() {
         //Messaggio di inizio del programma
@@ -23,11 +27,11 @@ public final class EnhancedBlocks extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this,this);
         //Messaggio antecedente all'eliminazione dei vari file di log
         System.out.println("Enrypase - Procedo a eliminare i files...");
-        File f = new File("./plugins/Prova/");
+        File f = new File(directoryPlugin);
         String[] filePresenti = filePresenti(f);
         for(int i = 0; i < filePresenti.length; i++){
             if(!filePresenti[i].equals("DO NOT DELETE")){
-                f = new File("./plugins/Prova/" + filePresenti[i]);
+                f = new File(directoryPlugin + filePresenti[i]);
                 f.delete();
                 System.out.println("Enrypase - File " + filePresenti[i] + " eliminato");
             }
@@ -38,6 +42,42 @@ public final class EnhancedBlocks extends JavaPlugin implements Listener {
     public void onDisable() {
         //All'uscita non fa altro che scrivere che sta uscendo
         System.out.println("Enrypase - Uscendo");
+    }
+
+    //Metodo contenente tutti i comandi del plugin
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
+        //Se il comando è "cooldownReset"
+        if(command.getName().equals("cooldownReset")){
+            //Se è eseguito da un giocatore
+            if(sender instanceof Player){
+                Player player = (Player) sender;
+                //Restituisci tutti i file presenti nella directory
+                File f = new File(directoryPlugin);
+                String content[] = filePresenti(f);
+                //Trova il file riguardante il giocatore
+                for(int i = 0; i < content.length; i++){
+                    //Se trova il file eliminalo
+                    if(content[i].contains(player.getPlayerListName())){
+                        f = new File(directoryPlugin + content[i]);
+                        f.delete();
+                        player.sendMessage(ChatColor.GREEN + "Cooldown Resetted Succesfully");
+                        return true;
+                    }
+                }
+                player.sendMessage(ChatColor.RED + "Cooldown Not Resetted");
+                return false;
+            }
+        }
+        //Se il comando è "reload"
+        else if(command.getName().equals("reload")){
+            Player player = (Player) sender;
+            //Ricarica il programma
+            onEnable();
+            player.sendMessage(ChatColor.GREEN + "Plugin Resetted Succesfully");
+            return true;
+        }
+        return false;
     }
 
     //ELENCO OGGETTI CHE DANNO BENEFICIO AL GIOCATORE
@@ -181,7 +221,7 @@ public final class EnhancedBlocks extends JavaPlugin implements Listener {
     //C'è un solo giocatore, siccome quello che riceverà il messaggio sarà lo stesso che ha usato l'oggetto
     public boolean controllaFiles(int t, Player pMex){
         //Controllo dei files presenti nella directory interessata
-        File path = new File("./plugins/Prova");
+        File path = new File(directoryPlugin);
         String[] contents = filePresenti(path);
         //Per tutti i files presenti
         for(int i = 0; i < contents.length; i++) {
@@ -207,7 +247,7 @@ public final class EnhancedBlocks extends JavaPlugin implements Listener {
                     if(System.currentTimeMillis()/1000 > vecchioTempo + delay) {
                         //Si prevede all'eliminazione del file, la creazione di uno nuovo e si da l'OK per l'utilizzo dell'oggetto
                         eliminaFile(informazioni);
-                        String percorsoNuovo = "./plugins/Prova/" + pMex.getPlayerListName() + "_" + System.currentTimeMillis() + "_" + t;
+                        String percorsoNuovo = directoryPlugin + pMex.getPlayerListName() + "_" + System.currentTimeMillis() + "_" + t;
                         File f = new File(percorsoNuovo);
                         return true;
                     }
@@ -220,9 +260,9 @@ public final class EnhancedBlocks extends JavaPlugin implements Listener {
             }
         }
         //Se il tile non viene trovato significa che non esiste e, allora, se ne crea uno nuovo e si da l'OK al giocatore
-        File f = new File("./plugins/Prova/" + pMex.getPlayerListName() + "_" + System.currentTimeMillis() + "_" + t);
+        File f = new File(directoryPlugin + pMex.getPlayerListName() + "_" + System.currentTimeMillis() + "_" + t);
         try {
-            String percorso = "./plugins/Prova/" + pMex.getPlayerListName() + "_" + System.currentTimeMillis() + "_" + t;
+            String percorso = directoryPlugin + pMex.getPlayerListName() + "_" + System.currentTimeMillis() + "_" + t;
             BufferedWriter bw = new BufferedWriter(new FileWriter(percorso));
             bw.close();
         }
@@ -235,7 +275,7 @@ public final class EnhancedBlocks extends JavaPlugin implements Listener {
 
     //Metodo comodo che ci permette di eliminare un file date delle informazioni
     public void eliminaFile(String informazioni[]){
-        String percorsoVecchio = "./plugins/Prova/" + informazioni[0] + "_" + informazioni[1] + "_" + informazioni[2];
+        String percorsoVecchio = directoryPlugin + informazioni[0] + "_" + informazioni[1] + "_" + informazioni[2];
         File f = new File(percorsoVecchio);
         f.delete();
     }
