@@ -1,0 +1,15 @@
+name: EnhancedBlocks
+version: ${project.version}
+main: passcript.enhancedblocks.EnhancedBlocks
+api-version: 1.16
+authors: [ Enrypase ]
+description: Programma che permette l'utilizzo di blocchi con dei particolari effetti
+commands:
+    cooldownReset:
+      description: Azzera il cooldown.
+      aliases: [cooldownReset]
+      usage: /<command>
+    reload:
+      description: Riavvio del plug-in.
+      aliases: [reload]
+      usage: /<command>
