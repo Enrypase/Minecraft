@@ -11,7 +11,7 @@ Lo scopo di questo plugin è la creazione di blocchi con nomi e descrizioni part
 4) *Nome:* "Rabbit's Jump", *Descrizione:* "Click for jumping into space." --> Effetti desiderati SALTO 41 per 2 SECONDI e RESISTENZA 10 per 8 SECONDI; <br>
 5) *Nome:* "Zombie's Flesh", *Descrizione:* "Hit your opponent to set his hunger to 0." --> Effetto desiderato PORTARE a 0 LA BARRA DI FAME DELL'AVVERSARIO; <br>
 6) *Nome:* "Squid's Ink", *Descrizione:* "Blind your enemies in one hit!" --> Effetto desiderato CECITA' 3 e LENTEZZA 2 per 7 SECONDI; <br>
-7) *Nome:* "", *Descrizione:* "" --> Effetto desiderato FORZA 3 per 7 SECONDI; --> DA ULTIMARE<br>
+7) *Nome:* "Snake's Venom", *Descrizione:* "Hit your enemies to weaken them." --> Effetto desiderato VELENO 1, LENTEZZA 1 per 15 SECONDI e NAUSEA 2 per 8 secondi; <br>
 
 ***Stato attuale:*** <br>
 80% Completato e funzionante. <br>
