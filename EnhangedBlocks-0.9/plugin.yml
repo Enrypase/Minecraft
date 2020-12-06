@@ -1,0 +1,6 @@
+name: EnhancedBlocks
+version: ${project.version}
+main: passcript.enhancedblocks.EnhancedBlocks
+api-version: 1.16
+authors: [ Enrypase ]
+description: Programma che permette l'utilizzo di blocchi con dei particolari effetti
