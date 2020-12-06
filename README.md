@@ -1,5 +1,5 @@
 # Plugin Per Minecraft
-## Prova
+## EnhancedBlocks
 
 ***Introduzione:*** <br>
 Il plugin permette di due blocchi prima dell'inizio del cooldown.<br>
