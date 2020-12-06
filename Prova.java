@@ -5,7 +5,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -47,16 +46,16 @@ public final class Prova extends JavaPlugin implements Listener {
                 info[1] = metadataOggetto.getLore().toString();     //LORE
 
                 if (info[0].contains("Lion's Strength") && info[1].contains("Click for 7 seconds of strength III.")) {
-                    diminuisci("Lion's Strength", giocatore, e, oggettiInventario, oggetto, posInventario);
+                    diminuisci("Lion's Strength", giocatore, giocatore, e, oggettiInventario, oggetto, posInventario);
                 }
                 else if(info[0].contains("Leopard's Speed") && info[1].contains("Click for 20 seconds of speed III.")){
-                    diminuisci("Leopard's Speed", giocatore, e, oggettiInventario, oggetto, posInventario);
+                    diminuisci("Leopard's Speed", giocatore, giocatore, e,  oggettiInventario, oggetto, posInventario);
                 }
                 else if(info[0].contains("Rhino's Armor") && info[1].contains("Click for 10 seconds of tanking.")){
-                    diminuisci("Rhino's Armor", giocatore, e, oggettiInventario, oggetto, posInventario);
+                    diminuisci("Rhino's Armor", giocatore, giocatore, e, oggettiInventario, oggetto, posInventario);
                 }
                 else if(info[0].contains("Rabbit's Jump") && info[1].contains("Click for jumping into space.")){
-                    diminuisci("Rabbit's Jump", giocatore, e, oggettiInventario, oggetto, posInventario);
+                    diminuisci("Rabbit's Jump", giocatore, giocatore, e,  oggettiInventario, oggetto, posInventario);
                 }
             }
 
@@ -81,7 +80,10 @@ public final class Prova extends JavaPlugin implements Listener {
             try{
                 if (inventario[posizioneAttuale].getItemMeta().hasLore()) {
                     if (inventario[posizioneAttuale].getItemMeta().getDisplayName().contains("Zombie's Flesh") || inventario[posizioneAttuale].getItemMeta().getLore().contains("Hit your opponent to set his hunger to 0.")) {
-                        diminuisci("Zombie's Flesh", attaccante, null, inventario, inventario[posizioneAttuale], posizioneAttuale);
+                        diminuisci("Zombie's Flesh", difensore, attaccante, null, inventario, inventario[posizioneAttuale], posizioneAttuale);
+                    }
+                    else if(inventario[posizioneAttuale].getItemMeta().getDisplayName().contains("Squid's Ink") || inventario[posizioneAttuale].getItemMeta().getLore().contains("Blind your enemies in one hit!")){
+                        diminuisci("Squid's Ink", difensore, attaccante, null, inventario, inventario[posizioneAttuale], posizioneAttuale);
                     }
                 }
             }
@@ -100,7 +102,8 @@ public final class Prova extends JavaPlugin implements Listener {
         return -1;
     }
 
-    public boolean controllaFiles(int t, Player p){
+    //ATTENZIONE, GIOCATORE CHE RICEVE EFFETTO E CHE RICEVE MESSAGGIO POTREBBERO ESSERE FIDDERENTI
+    public boolean controllaFiles(int t, Player p, Player pMex){
 
         File path = new File("./plugins/Prova");
         String contents[] = path.list();
@@ -129,7 +132,7 @@ public final class Prova extends JavaPlugin implements Listener {
                         return true;
                     }
                     else {
-                        p.sendMessage(ChatColor.YELLOW + "[" + ChatColor.GOLD + "Power Items" + ChatColor.YELLOW + "]" + ChatColor.GRAY + " Are on cooldown for: " + ChatColor.DARK_RED + ((vecchioTempo + delay) - System.currentTimeMillis()/1000) + ChatColor.GRAY + "s");
+                        pMex.sendMessage(ChatColor.YELLOW + "[" + ChatColor.GOLD + "Power Items" + ChatColor.YELLOW + "]" + ChatColor.GRAY + " Are on cooldown for: " + ChatColor.DARK_RED + ((vecchioTempo + delay) - System.currentTimeMillis()/1000) + ChatColor.GRAY + "s");
                         return false;
                     }
                 }
@@ -147,42 +150,48 @@ public final class Prova extends JavaPlugin implements Listener {
         return true;
     }
 
-    public void diminuisci(String nomeOggetto, Player giocatore, PlayerInteractEvent e, ItemStack[] oggettiInventario, ItemStack oggetto, int posInventario){
+    public void diminuisci(String nomeOggetto, Player giocatoreEffetto, Player giocatoreMessaggio, PlayerInteractEvent e, ItemStack[] oggettiInventario, ItemStack oggetto, int posInventario){
         //IL PARAMETRO DI CONTROLLAFILES INDICA IL COOLDOWN
-        if(controllaFiles(45, giocatore)) {
+        if(controllaFiles(45, giocatoreEffetto, giocatoreMessaggio)) {
             if (oggetto.getAmount() > 1) {
                 oggetto.setAmount(oggetto.getAmount() - 1);
             } else if (oggetto.getAmount() == 1) {
                 try {
                     oggettiInventario[posInventario] = null;
-                    giocatore.getInventory().setItem(posInventario, oggettiInventario[posInventario]);
+                    giocatoreEffetto.getInventory().setItem(posInventario, oggettiInventario[posInventario]);
                 } catch (IndexOutOfBoundsException error) {
                     System.out.println("Errore - IOoBE - Prova dell'Enrypase");
                 }
             }
             if(nomeOggetto.contains("Lion's Strength")){
                 PotionEffect forza = new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 7*20, 2);
-                giocatore.addPotionEffect(forza);
+                giocatoreEffetto.addPotionEffect(forza);
             }
             else if(nomeOggetto.contains("Leopard's Speed")){
                 PotionEffect velocità = new PotionEffect(PotionEffectType.SPEED, 20*20, 2);
-                giocatore.addPotionEffect(velocità);
+                giocatoreEffetto.addPotionEffect(velocità);
             }
             else if(nomeOggetto.contains("Rhino's Armor")){
                 PotionEffect assorbimento = new PotionEffect(PotionEffectType.ABSORPTION, 10*20, 2);
                 PotionEffect rigenerazione = new PotionEffect(PotionEffectType.REGENERATION, 10*20, 4);
                 PotionEffect resistenza = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 10*20, 2);
-                giocatore.addPotionEffect(assorbimento);
-                giocatore.addPotionEffect(rigenerazione);
-                giocatore.addPotionEffect(resistenza);
+                giocatoreEffetto.addPotionEffect(assorbimento);
+                giocatoreEffetto.addPotionEffect(rigenerazione);
+                giocatoreEffetto.addPotionEffect(resistenza);
             }
             else if(nomeOggetto.contains("Rabbit's Jump")){
                 PotionEffect salto = new PotionEffect(PotionEffectType.JUMP, 2*20, 40);
                 PotionEffect resistenza = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 8*20, 9);
-                giocatore.addPotionEffect(salto);
-                giocatore.addPotionEffect(resistenza);
+                giocatoreEffetto.addPotionEffect(salto);
+                giocatoreEffetto.addPotionEffect(resistenza);
             }
             else if(nomeOggetto.contains("Zombie's Flesh")){
-                giocatore.setFoodLevel(0);
+                giocatoreEffetto.setFoodLevel(0);
+            }
+            else if(nomeOggetto.contains("Squid's Ink")){
+                PotionEffect cecità = new PotionEffect(PotionEffectType.BLINDNESS, 7*20, 2);
+                giocatoreEffetto.addPotionEffect(cecità);
             }
         }
+    }
+}
