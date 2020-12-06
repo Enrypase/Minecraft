@@ -1,29 +1,14 @@
 package prova.prova;
 
-import org.bukkit.Server;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.metadata.MetadataValue;
-import org.bukkit.plugin.*;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import java.io.*;
-import java.nio.file.Path;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
+
 
 public final class Prova extends JavaPlugin implements Listener {
 
@@ -57,24 +42,17 @@ public final class Prova extends JavaPlugin implements Listener {
                 info[0] = metadataOggetto.getDisplayName();         //NOME
                 info[1] = metadataOggetto.getLore().toString();     //LORE
 
-
-
-                if (info[0].contains("fazzoletto") && info[1].contains("ciao")) {
-                    if(controllaFiles(30, giocatore)) {
-                        if ((giocatore.getMetadata("tempoFazzoletto").size() == 0) || (System.currentTimeMillis() / 1000 > giocatore.getMetadata("tempoFazzoletto").get(0).asInt() + giocatore.getMetadata("tempoFazzoletto").get(0).asLong() / 1000)) {
-                            if (oggetto.getAmount() > 1) {
-                                oggetto.setAmount(oggetto.getAmount() - 1);
-                            } else if (oggetto.getAmount() == 1) {
-                                try {
-                                    oggettiInventario[posInventario] = null;
-                                    e.getPlayer().getInventory().setItem(posInventario, oggettiInventario[posInventario]);
-                                } catch (IndexOutOfBoundsException error) {
-                                    System.out.println("Errore - IOoBE - Prova dell'Enrypase");
-                                }
-                            }
-
-                        }
-                    }
+                if (info[0].contains("Lion's Strength") && info[1].contains("Click for 7 seconds of strenght III.")) {
+                    diminuisci(giocatore, e, oggettiInventario, oggetto, posInventario);
+                }
+                else if(info[0].contains("Leopard's Speed") && info[1].contains("Click for 20 seconds of speed III.")){
+                    diminuisci(giocatore, e, oggettiInventario, oggetto, posInventario);
+                }
+                else if(info[0].contains("Rhino's Armor") && info[1].contains("Click for 10 seconds of tanking.")){
+                    diminuisci(giocatore, e, oggettiInventario, oggetto, posInventario);
+                }
+                else if(info[0].contains("Rabbit's Jump") && info[1].contains("Click jumping into space.")){
+                    diminuisci(giocatore, e, oggettiInventario, oggetto, posInventario);
                 }
             }
 
@@ -126,7 +104,7 @@ public final class Prova extends JavaPlugin implements Listener {
                     }
                     else {
                         System.out.println("Tempo rimanente " +  ((vecchioTempo + delay) - System.currentTimeMillis()/1000));
-                        p.sendMessage("Remaining time: "  +  ((vecchioTempo + delay) - System.currentTimeMillis()/1000));
+                        p.sendMessage("Power items are still in cooldown for: "  +  ((vecchioTempo + delay) - System.currentTimeMillis()/1000) + " seconds");
                         return false;
                     }
                 }
@@ -143,5 +121,20 @@ public final class Prova extends JavaPlugin implements Listener {
             return false;
         }
         return true;
+    }
+
+    public void diminuisci(Player giocatore, PlayerInteractEvent e, ItemStack[] oggettiInventario, ItemStack oggetto, int posInventario){
+        if(controllaFiles(30, giocatore)) {
+            if (oggetto.getAmount() > 1) {
+                oggetto.setAmount(oggetto.getAmount() - 1);
+            } else if (oggetto.getAmount() == 1) {
+                try {
+                    oggettiInventario[posInventario] = null;
+                    e.getPlayer().getInventory().setItem(posInventario, oggettiInventario[posInventario]);
+                } catch (IndexOutOfBoundsException error) {
+                    System.out.println("Errore - IOoBE - Prova dell'Enrypase");
+                }
+            }
+        }
     }
 }
