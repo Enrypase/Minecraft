@@ -26,6 +26,8 @@ Questo per rendere il pvp più dinamico e divertente, oltre che ad avere anche r
 7) *Nome:* "Snake's Venom", *Descrizione:* "Hit your enemies to weaken them." <br> --> Effetto desiderato VELENO 1, LENTEZZA 1 per 15 SECONDI e NAUSEA 2 per 8 secondi; <br>
 ------------------------- Versioni successive -------------------------------- <br><br>
 ***Stato attuale:*** <br>
+Aggiungere i permessi ai comandi del plugin. <br>
+Settare in un modo migliore i comandi e non con plugin:comando. <br>
 100% del codice attualmente scritto funzionante. <br><br>
 
 ***Possibili modifiche:*** <br>
