@@ -14,5 +14,7 @@ Lo scopo di questo plugin è la creazione di blocchi con nomi e descrizioni part
 80% Completato e funzionante. <br>
 *Possibili modifiche:* <br>
 > Aggiunta di un metodo che una volta uscito un giocatore pulisca i file che lo riguardano <br>
+
 > Comando (possibile solo da oppati) per resettare il timeout <br>
-...
+
+> ...
