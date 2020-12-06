@@ -3,6 +3,7 @@
 
 ***Obbiettivo:*** <br>
 Lo scopo di questo plugin è la creazione di blocchi con nomi e descrizioni particolari che, una volta cliccati con destro (se l'effetto riguarda se stessi) o sinistro su un giocatore (se l'effetto deve riguardare quest'ultimo), applichi quello che è voluto. <br>
+Aggiungo che è possibile utilizzare 2 effetti prima dell'effettivo inizio del conto alla rovescia (in versione 1.0 di 45 secondi)
 
 ***Blocchi attuali:*** <br>
 1) *Nome:* "Lion's Strength", *Descrizione:* "Click for 7 seconds of strength III." --> Effetto desiderato FORZA 3 per 7 SECONDI; <br>
