@@ -4,6 +4,7 @@
 ***Introduzione:*** <br>
 Il plugin permette di due blocchi prima dell'inizio del cooldown.<br>
 Il plugin supporta con efficienza la versione 1.8.9 di Minecraft, le altre non sono state (ancora testate). <br>
+La libreria utilizzata è "Spigot-1.12.2". Non tutti i metodi presenti sono utilizzabili sulle versioni precedenti. <br>
 Versione più recente: 0.9. <br><br>
 
 ***Elenco delle versioni:*** <br>
