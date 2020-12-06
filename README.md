@@ -11,7 +11,8 @@ Versione più recente: 0.9. <br><br>
 ... <br><br>
 
 ***Obbiettivo:*** <br>
-Lo scopo di questo plugin è la creazione di blocchi con nomi e descrizioni particolari che, una volta cliccati con destro (se l'effetto riguarda se stessi) o sinistro su un giocatore (se l'effetto deve riguardare quest'ultimo), applichi quello che è voluto.<br><br>
+Lo scopo dello scipt è relativamente semplice, assegnare a dei blocchi degli effetti che possano riguardare il nostro personaggio o gli altri, se in combattimento. <br>
+Questo per rendere il pvp più dinamico e divertente, oltre che ad avere anche risvolti sulla "vita pacifica" del giocatore.<br><br>
 
 ***Blocchi attuali:*** <br>
 ------------------------- Dalla versione 0.9 -------------------------------- <br>
@@ -24,9 +25,11 @@ Lo scopo di questo plugin è la creazione di blocchi con nomi e descrizioni part
 7) *Nome:* "Snake's Venom", *Descrizione:* "Hit your enemies to weaken them." <br> --> Effetto desiderato VELENO 1, LENTEZZA 1 per 15 SECONDI e NAUSEA 2 per 8 secondi; <br>
 ------------------------- Versioni successive -------------------------------- <br><br>
 ***Stato attuale:*** <br>
-80% Completato e funzionante. <br><br>
+100% del codice attualmente scritto funzionante. <br><br>
 
 ***Possibili modifiche:*** <br>
 > Comando (possibile solo da oppati) per resettare il timeout. <br> (prima di questo bisogna aspettare la corretta definizione dei vari permessi) <br>
 
 > La versione si trova ancora in 0.9 siccome non implementa nè .yml nè l'utilizzo dei plugin. Data, però, la relativa semplicità dello scipt non è un problema (grande) <br><br>
+
+> La versione 0.9 è ancora da adattare al plugin del fazioni
