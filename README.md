@@ -36,3 +36,5 @@ Settare in un modo migliore i comandi e non con plugin:comando. <br>
 > La versione si trova ancora in 0.9 siccome non implementa nè .yml nè l'utilizzo dei plugin. Data, però, la relativa semplicità dello scipt non è un problema (grande) <br><br>
 
 > La versione 0.9 è ancora da adattare al plugin del fazioni
+
+> Essendo possibile utilizzare un database, successivamente l'utilizzo dei file verrà reso obsoleto per lasciare posto all'utilizzo del database
