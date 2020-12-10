@@ -54,7 +54,7 @@ Versione più recente: 0.9. <br><br>
 
 ***Blocchi attuali:*** <br>
 ------------------------- Dalla versione 0.9 -------------------------------- <br>
-/
+/<br>
 ------------------------- Versioni successive -------------------------------- <br><br>
 ***Stato attuale:*** <br>
 / <br><br>
