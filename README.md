@@ -38,3 +38,26 @@ Settare in un modo migliore i comandi e non con plugin:comando. <br>
 > La versione 0.9 è ancora da adattare al plugin del fazioni
 
 > Essendo possibile utilizzare un database, successivamente l'utilizzo dei file verrà reso obsoleto per lasciare posto all'utilizzo del database
+
+## Rune
+
+***Introduzione:*** <br>
+Plugin che permette di dare determinati effetti a un giocatore se dispone di un particolare blocco nell'inventario.<br>
+Versione più recente: 0.9. <br><br>
+
+***Elenco delle versioni:*** <br>
+06/12/2020 - Versione 0.9 <br>
+... <br><br>
+
+***Obbiettivo:*** <br>
+"".<br><br>
+
+***Blocchi attuali:*** <br>
+------------------------- Dalla versione 0.9 -------------------------------- <br>
+/
+------------------------- Versioni successive -------------------------------- <br><br>
+***Stato attuale:*** <br>
+/ <br><br>
+
+***Possibili modifiche:*** <br>
+/
