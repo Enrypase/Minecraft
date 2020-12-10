@@ -1,0 +1,6 @@
+name: Rune
+version: ${project.version}
+main: passcript.rune.Rune
+api-version: 1.16
+authors: [ Enrypase ]
+description: rune
