@@ -1,3 +1,4 @@
 # Plugin Per Minecraft
 ## PowerItems
-Bruh
+Bruh<br>
+ Work in progress (---50%---)
