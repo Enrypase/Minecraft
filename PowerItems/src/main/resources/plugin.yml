@@ -1,0 +1,12 @@
+name: PowerItems
+version: ${project.version}
+main: passcraft.poweritems.PowerItems
+api-version: 1.16
+authors: [ Enrypase ]
+description: asd
+commands:
+  reload:
+    description: Reloads the plugin and reads again the YML file.
+    aliases: [ pi_reload ]
+    usage: /<command>
+

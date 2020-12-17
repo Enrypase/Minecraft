@@ -1,0 +1,21 @@
+powerItems:
+  deleteLogsEvery(KB): 10240
+  itemsBeforeCooldown: 2
+  cooldown(s): 45
+  cooldownMessage: '&7you may use this items in &6{cooldown}'
+  offCooldownMessage: '&7you can now use power items'
+  '1':
+    leftClick: no
+    consume: yes
+    name: '&6Strength'
+    lore: '&7prima linea di lore'
+    message: '&6Item Used'
+    effects:
+      '1':
+        type: INCREASE_DAMAGE
+        duration: 7
+        amplifier: 3
+      '2':
+        type: SPEED
+        duration: 10
+        amplifier: 5
