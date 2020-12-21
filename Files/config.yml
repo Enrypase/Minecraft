@@ -1,0 +1,65 @@
+powerItems:
+  deleteLogsEvery(KB): 10240
+  itemsBeforeCooldown: 2
+  cooldown(s): 45
+  cooldownMessage: '&7you may use this items in &6{cooldown}'
+  '1':
+    leftClick: false
+    consume: true
+    name: "Lion's Strength"
+    lore: 'Click for 7 seconds of strength III.'
+    message: '&6Item Used'
+    effects:
+      '1':
+        type: INCREASE_DAMAGE
+        duration: 7
+        amplifier: 3
+      '2':
+        type: SPEED
+        duration: 10
+        amplifier: 5
+  '2':
+    leftClick: false
+    consume: true
+    name: "Rabbit's Jump"
+    lore: 'Click for jumping into space.'
+    message: '&6Item Used'
+    effects:
+      '1':
+        type: INCREASE_DAMAGE
+        duration: 7
+        amplifier: 3
+      '2':
+        type: SPEED
+        duration: 10
+        amplifier: 5
+  '3':
+    leftClick: false
+    consume: true
+    name: "Leopard's Speed"
+    lore: 'Click for 20 seconds of speed III.'
+    message: '&6Item Used'
+    effects:
+      '1':
+        type: INCREASE_DAMAGE
+        duration: 7
+        amplifier: 3
+      '2':
+        type: SPEED
+        duration: 10
+        amplifier: 5
+  '4':
+    leftClick: false
+    consume: true
+    name: "Rhinos'a Armor"
+    lore: 'Click for 10 seconds of tanking.'
+    message: '&6Item Used'
+    effects:
+      '1':
+        type: INCREASE_DAMAGE
+        duration: 7
+        amplifier: 3
+      '2':
+        type: SPEED
+        duration: 10
+        amplifier: 5
