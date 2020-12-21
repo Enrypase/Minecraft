@@ -6,7 +6,7 @@
 **PowerItems** is a minecraft plugin that aims to give special **effects** to a **player** that uses a particoular **item**.
 
 ### How to use:
-Pretty easy: **configure** the **YML** file. This file will be created after the first execution of the plugin. <br>
+Pretty easy: configure **PowerItemsConfig.yml** in **/plugins/PowerItems/**. This file will be created after the first execution of the plugin. <br>
 Check a YML configuration example in **config.yml** in the following directory: **/plugins/PowerItems/**
 
 ### Implemeted Features:
