@@ -16,6 +16,12 @@ It implements **logs** features too. The log file will be created in the followi
 **Left Click** on a player to assign the item effects to the player you hit. <br>
 **Effects queue** for the right click items' effects. <br>
 
+## Commands:
+**/poweritems:reload** reloads the plugin <br>
+**/poweritems:getItems** returns in the chat the configured items <br>
+**/poweritems:reset** removes the cooldown of a player <br>
+**/poweritems:shutdown** shutsdown the plugin, a reload is needed to make the plugin work again <br>
+
 ### Versions:
 **1.0 data**: First version of the plugin.
 
