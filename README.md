@@ -29,4 +29,4 @@ It implements **logs** features too. The log file will be created in the followi
 ### Still supported?
 Yes - The plugin is based on **Minecraft 1.8**
 
-COMANDO P
+DOMANI LO FINISCO 
