@@ -1,0 +1,22 @@
+name: PowerItems
+version: ${project.version}
+main: passcraft.poweritems.PowerItems
+api-version: 1.16
+authors: [ Enrypase ]
+description: asd
+commands:
+  reload:
+    description: Reloads the plugin and reads again the YML file.
+    usage: /<command>
+  getItems:
+    description: sout items.
+    usage: /<command>
+  getItem:
+    description: sout items.
+    usage: /<command>
+  reset:
+    description: resets the cooldown.
+    usage: /<command>
+  shutdown:
+    description: shuts down the plugin
+    usage: /<command>

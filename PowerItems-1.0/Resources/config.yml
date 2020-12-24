@@ -1,0 +1,26 @@
+#Root Element, do not delete it!
+#The following sintax MUST be respected!
+#In case of wrong values default will be setted!
+powerItems:
+  deleteLogsEvery(KB): 1024 #Deletes the plugin's logs after the specified amount of KB
+  itemsBeforeCooldown: 2    #Activates the cooldown after the specified amount of item used by the player
+  cooldown(s): 45           #Cooldown length in seconds
+  cooldownMessage: '&7you may use this items in &6{cooldown}'     #Message displayed when a player tries to use the items while they still in cooldown
+  '1':
+    leftClick: false        #If true, the items activates itself leftclicking on a player; if false with the right click everywhere
+    consume: true           #If true the items get consumed after the click; if false it doesn't
+    name: "Lion's Strength"                                       #Name of the item (it must be the same as the in-game item (COLORS EXLUDED))
+    lore: 'Click for 7 seconds of strength III.'                  #Lore of the item (it must be the same as the in-game item (COLORS EXLUDED))
+    message: '&6Item Used'                                        #Message displayed when the item is used
+    effects:                #List of effects gave by the item
+      '1':
+        type: INCREASE_DAMAGE                                     #Effect name
+        duration: 7                                               #Effect duration in seconds
+        amplifier: 3                                              #Potion level amplifier 3 = effect level 3
+        delay: 0                                                  #Delay after the effect is activated in seconds
+      '2':
+        type: SPEED
+        duration: 10
+        amplifier: 5
+        delay: 5
+    end: end              #End tag, must be placed at the end of the item
