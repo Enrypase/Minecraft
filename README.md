@@ -33,3 +33,4 @@ Yes - The plugin is based on **Minecraft 1.8** even if it is programmed in **Spi
 ## Runes
 
 WORK IN PROGRESS!
+Chiusura inventario, morte, login, drop, pickup [Action listener degni di nota!]
