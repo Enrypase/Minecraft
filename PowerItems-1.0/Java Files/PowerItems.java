@@ -62,7 +62,7 @@ public final class PowerItems extends JavaPlugin implements Listener {
         time = new ArrayList<PlayerCounter>();
         potionDelays = new ArrayList<PotionDelay>();
 
-        System.out.println("[PowerItems] Plugin's Path: " + Bukkit.getServer().getPluginManager().getPlugin("PowerItems").getDataFolder().getPath());
+        System.out.println("[PowerItems] Enrypase - Plugin's Path: " + Bukkit.getServer().getPluginManager().getPlugin("PowerItems").getDataFolder().getPath());
         logPath = Bukkit.getServer().getPluginManager().getPlugin("PowerItems").getDataFolder().getPath();
 
         readYML();
