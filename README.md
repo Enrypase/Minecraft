@@ -15,7 +15,7 @@ It implements **logs** features too. The log file will be created in the followi
 **Right Click** objects to assign the effects to the player that uses the item. <br>
 **Left Click** on a player to assign the item effects to the player you hit. <br>
 **Effects queue** for the right click items' effects. <br>
-**Delay** of an effect, just specify in the specific tag in the YML!. <br>
+**Delay** of an effect, just specify it in the specific tag in the YML!. <br>
 
 ### Commands:
 **/poweritems:reload** reloads the plugin <br>
