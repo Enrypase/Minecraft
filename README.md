@@ -78,5 +78,5 @@ Yes - The plugin is based on **Minecraft 1.8** even if it is programmed in **Spi
 <br>
 
 ### Notes:
-There's a file with all the names of potion effects you must use in the YMLs. <br>
+There's a [file](potionEffects.md) with all the names of potion effects you must use in the YMLs. <br>
 The plugins won't accept the names you see in minecraft! Example "Strength III". <br>
