@@ -1,6 +1,6 @@
 # Minecraft Plugins
 
-## (1) PowerItems
+## :one: PowerItems
 
 ### :clipboard: Description:
 **PowerItems** is a minecraft plugin that aims to give special **effects** to a **player** that uses a particoular **item**.
@@ -32,7 +32,7 @@ Yes - The plugin is based on **Minecraft 1.8** even if it is programmed in **Spi
 
 <!-- -------------------------------------------------------------------------------------------------------------------------------- -->
 
-## (2) Runes
+## :two: Runes
 
 ### :clipboard: Description:
 **Runes** is a minecraft plugin that aims to give special **effects** to a **player** that has a particoular **item** in the **inventory**.
