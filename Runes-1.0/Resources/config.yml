@@ -1,0 +1,13 @@
+powerItems:
+  deleteLogsEvery(KB): 2048 #Deletes the plugin's logs after the specified amount of KB
+  otherLogs: false          #If false only important logs about the plugin will be written; If true player logs will be written too
+  '1':                      #First rune
+    consume: 0              #Consumed after x seconds; 0 = won't be consumed; amount > 0 means that the rune is going to be consumed after 'amount' seconds
+    name: pp                #Object's name
+    lore: pp                #Object's lore (first line)
+    effects:                #Effect n.1
+      '1':                  #
+        type: INCREASE_DAMAGE   #Effect type
+        duration: 7             #Effect duration in seconds
+        amplifier: 3            #Level of the effect
+    end: end                #End of the first item
